@@ -90,3 +90,15 @@ postgres=# select payload->'acceptedBid'->'amount' as amount from "active"('Pain
  "1000.0000000000"
 (1 row)
 ```
+
+## Daml Shell 
+
+Start the shell
+```
+docker compose run shell
+```
+
+Connect to PQS DB to query PQS
+```
+connect jdbc:postgresql://pqs1_db:5432/postgres?user=postgres&password=postgres
+```

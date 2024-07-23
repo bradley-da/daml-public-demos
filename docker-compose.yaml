@@ -63,6 +63,18 @@ services:
         condition: service_healthy
       participant1:
         condition: service_healthy
+  
+  shell:
+    container_name: daml_shell
+    image: digitalasset-docker.jfrog.io/daml-shell:0.1.2
+    volumes:
+      - ./configs:/canton/host/configs:r
+    command: --config /canton/host/configs/daml-shell.conf
+    depends_on:
+      pqs1_db:
+        condition: service_healthy
+      participant1:
+        condition: service_healthy
 
   scripts:
     container_name: scripts
